@@ -1,4 +1,4 @@
-# News Api UI => [DEMO](https://drive.google.com/file/d/1YRN9Jwcq4X8q0-Z2Z07PqghW2IQD0lQ3/view?usp=sharing)
+# News Api UI => [Tutorial](https://drive.google.com/file/d/1YRN9Jwcq4X8q0-Z2Z07PqghW2IQD0lQ3/view?usp=sharing)
 
 ## Development Process
 
