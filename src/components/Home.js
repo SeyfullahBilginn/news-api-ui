@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { Col, Row } from 'react-bootstrap';
+import React, { useEffect } from 'react'
+import { Row } from 'react-bootstrap';
 import { usePagination } from '../contexts/LayoutContext';
-import NewsService from '../services/NewsService'
 import CustomCard from './CustomCard';
 import SearchBar from './SearchBar';
 import "./Home.css";
@@ -12,21 +11,16 @@ export default function Home() {
   const {
     activePage,
     setActivePage,
-    isInitialRender,
     numOfPage,
-    setNumOfPage,
     totalCount,
-    setTotalCount,
     modifiedPages,
-    designPagination,
     fetchNews,
     cards,
-    keyword
   } = usePagination();
 
   useEffect(() => {
-    fetchNews();
   }, [activePage])
+  fetchNews();
 
   function RenderPagination() {
     return (
@@ -74,7 +68,7 @@ export default function Home() {
       </div>
     )
   }
-  console.log(cards);
+
   return (
     <Row className="Home">
       <SearchBar />

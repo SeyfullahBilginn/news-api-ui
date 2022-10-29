@@ -4,12 +4,12 @@ import Navbar from 'react-bootstrap/Navbar';
 
 export default function Header() {
   return (
-    <Navbar variant="dark" bg="dark" expand="lg">
+    <Navbar variant="dark" bg="primary" expand="xxl">
       <Container fluid>
-        <Navbar.Brand href="#home">BK Mobil Haber</Navbar.Brand>
+        <Navbar.Brand href="/">BK Mobil Haber</Navbar.Brand>
         <div>
-          <Navbar.Brand href="#">Ana Sayfa</Navbar.Brand>
-          <Navbar.Brand href="#home">Favoriler</Navbar.Brand>
+          <Navbar.Brand href="/">Ana Sayfa</Navbar.Brand>
+          <Navbar.Brand href="/favourites">Favoriler</Navbar.Brand>
         </div>
       </Container>
     </Navbar>
