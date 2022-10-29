@@ -69,6 +69,22 @@ export default function Home() {
     )
   }
 
+  if (cards?.isLoading) return (
+    <Row className="Home">
+      <SearchBar />
+      <div>
+        LOADING...
+      </div>
+    </Row>
+  )
+  if (cards?.error?.isError) return (
+    <Row className="Home">
+      <SearchBar />
+      <div>
+        An error Occured
+      </div>
+    </Row>
+  )
   return (
     <Row className="Home">
       <SearchBar />

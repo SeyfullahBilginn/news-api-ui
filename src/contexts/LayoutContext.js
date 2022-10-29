@@ -14,7 +14,17 @@ export function PaginationProvider({ children }) {
   const [totalCount, setTotalCount] = useState(0);
   const [modifiedPages, setModifiedPages] = useState([]);
   const [keyword, setKeyword] = useState("a");
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState(
+    {
+      data: [],
+      isLoading: false,
+      error: {
+        isError:true,
+        code: "",
+        errorMessage: ""
+      }
+    }
+  );
   const [favourites, setFavourites] = useState([]);
 
 
@@ -48,17 +58,28 @@ export function PaginationProvider({ children }) {
   }
 
   function fetchNews() {
+    setCards({ ...cards, isLoading: true });
     NewsService.getAllNews(keyword, activePage).then(
       res => res.json()
         .then(
           result => {
+            setCards({ data: result, isError: false, isLoading: false });
             setCards(result);
             setTotalCount(result.totalResults);
             setNumOfPage(Math.ceil(result.totalResults / 100));
             designPagination(Math.ceil(result.totalResults / 100))
           }
-        )
-    )
+        ).catch(error => setCards(
+          {
+            ...cards,
+            isLoading: false,
+            error: {
+              isError: true,
+              errorMessage: error
+            }
+          }
+        ))
+    ).catch(error => console.log(error))
   }
 
   const value = {
