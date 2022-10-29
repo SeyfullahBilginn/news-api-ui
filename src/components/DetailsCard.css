@@ -1,0 +1,56 @@
+.CardDetail {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  width:100%;
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+.CardDetail .card {
+  width: 1200px;
+  padding: 20px 40px 40px 20px;
+  justify-content: center;
+  border: 0.05em solid black;
+  
+  /* background-color: blue; */
+}
+
+.inner {
+  /* border: 0.05em solid black; */
+}
+
+.CardDetail .cardImage {
+  border-radius: 10px;
+  width: 600px;
+}
+
+.CardDetail .description {
+  display: -webkit-box;
+  font-size: 12px;
+  line-height: 18px;
+  /* 12 * 1.5 ? 18 */
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-weight: 500;
+}
+
+.CardDetail .cardTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 21px;
+  /* 14 * 1.5 ? 21 */
+  font-weight: bold;
+  text-align: center;
+}
+
+.CardDetail .button {
+  margin: 0px 10px 0px 10px;
+}

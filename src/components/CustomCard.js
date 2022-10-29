@@ -3,6 +3,7 @@ import { ListGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
+import { useLocation, useNavigate } from 'react-router-dom';
 import "./CustomCard.css";
 
 export default function CustomCard({ item }) {
@@ -17,10 +18,11 @@ export default function CustomCard({ item }) {
     url,
     urlToImage
   } = item
+  const navigate = useNavigate();
 
   return (
     <Col>
-      <Card className="Card" style={{ height: 450 }}>
+      <Card className="Card center" style={{ height: 450 }}>
         <Card.Img height={100} variant="top" src={urlToImage} />
         <Card.Body>
           <Card.Title className="cardTitle">{title}</Card.Title>
@@ -32,7 +34,10 @@ export default function CustomCard({ item }) {
           <ListGroup.Item className="bottomTab">{publishedAt}</ListGroup.Item>
           <ListGroup.Item className="bottomTab">{author}</ListGroup.Item>
           <ListGroup.Item className="bottomTab bottomTabLast">
-            <Button variant="primary" size="sm" href={`details-${id}`}>
+            {/* <Button variant="primary" size="sm" href={`details-${id}`}> */}
+            <Button variant="primary" size="sm"
+              onClick={() => navigate(`/details-${id}`, { state: { item: item } })}
+            >
               DETAILS
             </Button>
           </ListGroup.Item>
