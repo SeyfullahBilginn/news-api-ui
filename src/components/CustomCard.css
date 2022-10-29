@@ -1,0 +1,52 @@
+.Card {
+  width: 250px;
+  align-content: space-between;
+}
+
+.Card .description {
+  display: -webkit-box;
+  font-size: 12px;
+  line-height: 18px; /* 12 * 1.5 ? 18 */
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  font-weight: 500;
+}
+
+.Card .cardTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 21px; /* 14 * 1.5 ? 21 */
+  font-weight: bold;
+  text-align: left;
+}
+
+.Card .listGroups {
+  display: flex;
+  background-color: red;
+  vertical-align: text-bottom;
+  padding: 0;
+
+}
+
+.Card .bottomTab {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 34px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.Card .bottomTabLast {
+  height: 46px;
+}
