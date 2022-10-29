@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import Detail from "./Detail";
 import Home from "./Home";
 import NewsSource from "./NewsSource";
+import Favourites from "./Favourites";
 
 export default function Router() {
   let element = useRoutes([
@@ -14,6 +15,7 @@ export default function Router() {
           path: "/",
           element: <Home />,
         },
+        { path: "/favourites", element: <Favourites /> },
         { path: "/details:id", element: <Detail /> },
         { path: "/details:id/source", element: <NewsSource /> },
       ],

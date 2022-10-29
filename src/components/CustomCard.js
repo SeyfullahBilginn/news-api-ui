@@ -1,13 +1,14 @@
-import { shape, string, number} from "prop-types";
+import { shape, string, number } from "prop-types";
 import React from 'react'
 import { ListGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from 'react-router-dom';
+import { useLayout } from "../contexts/LayoutContext";
 import "./CustomCard.css";
 
-export default function CustomCard({ item }) {
+export default function CustomCard({ item, isInFavs }) {
   const {
     id,
     author,
@@ -17,6 +18,12 @@ export default function CustomCard({ item }) {
     urlToImage
   } = item
   const navigate = useNavigate();
+
+  const { setFavourites } = useLayout();
+
+  function removeFromFavourites() {
+    setFavourites(prevState => prevState.filter(item => item.title !== title))
+  }
 
   return (
     <Col>
@@ -32,12 +39,19 @@ export default function CustomCard({ item }) {
           <ListGroup.Item className="bottomTab">{publishedAt}</ListGroup.Item>
           <ListGroup.Item className="bottomTab">{author}</ListGroup.Item>
           <ListGroup.Item className="bottomTab bottomTabLast">
-            {/* <Button variant="primary" size="sm" href={`details-${id}`}> */}
             <Button variant="primary" size="sm"
               onClick={() => navigate(`/details-${id}`, { state: { item: item } })}
             >
-              DETAILS
+              Ayrıntılar
             </Button>
+            {
+              isInFavs &&
+              <Button variant="primary" size="sm"
+                onClick={() => removeFromFavourites()}
+              >
+                Favorilerden Çıkar
+              </Button>
+            }
           </ListGroup.Item>
         </ListGroup>
       </Card>
@@ -48,7 +62,7 @@ export default function CustomCard({ item }) {
 CustomCard.propTypes = {
   item: shape({
     id: number,
-    author:string,
+    author: string,
     content: string,
     publishedAt: string,
     title: string,

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Row } from 'react-bootstrap';
-import { usePagination } from '../contexts/LayoutContext';
+import { useLayout } from '../contexts/LayoutContext';
 import CustomCard from './CustomCard';
 import SearchBar from './SearchBar';
 import "./Home.css";
@@ -16,11 +16,11 @@ export default function Home() {
     modifiedPages,
     fetchNews,
     cards,
-  } = usePagination();
+  } = useLayout();
 
   useEffect(() => {
-    fetchNews();
   }, [activePage])
+  fetchNews();
 
   function RenderPagination() {
     return (
