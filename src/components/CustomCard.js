@@ -1,9 +1,10 @@
+import { shape, string, number} from "prop-types";
 import React from 'react'
 import { ListGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "./CustomCard.css";
 
 export default function CustomCard({ item }) {
@@ -11,11 +12,8 @@ export default function CustomCard({ item }) {
     id,
     author,
     content,
-    description,
     publishedAt,
-    source,
     title,
-    url,
     urlToImage
   } = item
   const navigate = useNavigate();
@@ -45,4 +43,25 @@ export default function CustomCard({ item }) {
       </Card>
     </Col >
   )
+}
+
+CustomCard.propTypes = {
+  item: shape({
+    id: number,
+    author:string,
+    content: string,
+    publishedAt: string,
+    title: string,
+    urlToImage: string
+  })
+}
+
+CustomCard.defaultProps = {
+  item: {
+    id: 101,
+    author: "",
+    content: "",
+    publishedAt: "",
+    urlToImage: ""
+  }
 }

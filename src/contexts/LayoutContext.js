@@ -18,6 +18,9 @@ export function PaginationProvider({ children }) {
 
   useLayoutEffect(() => {
     const params = (new URL(window.location).searchParams);
+    if (params.get("keyword")) {
+      setKeyword(params.get("keyword").toString());
+    }
     if (params.get("page")) {
       setActivePage(Number(params.get("page")));
     }

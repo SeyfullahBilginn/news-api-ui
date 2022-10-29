@@ -1,3 +1,4 @@
+import { shape, string, number} from "prop-types";
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -47,4 +48,24 @@ export default function DetailsCard({ item }) {
       </Card>
     </Col >
   )
+}
+
+DetailsCard.propTypes = {
+  item: shape({
+    id: number,
+    content: string,
+    title: string,
+    url: string,
+    urlToImage: string
+  })
+}
+
+DetailsCard.defaultProps = {
+  item: {
+    id: 101,
+    content: "",
+    title: "",
+    url: "",
+    urlToImage: ""
+  }
 }
