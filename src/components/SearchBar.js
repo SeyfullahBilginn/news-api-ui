@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Button, Col } from 'react-bootstrap'
-import { usePagination } from '../contexts/LayoutContext';
+import { useLayout } from '../contexts/LayoutContext';
 
 export default function SearchBar() {
   const {
     keyword,
     setKeyword,
     fetchNews
-  } = usePagination();
+  } = useLayout();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -20,10 +20,10 @@ export default function SearchBar() {
       onSubmit={(event) => handleSubmit(event)}>
       <form className="d-flex">
         <div className="p-2 flex-grow-1">
-          <div class="row mt-5">
-            <div class="input-group">
+          <div className="row mt-5">
+            <div className="input-group">
               <input
-                class="form-control border"
+                className="form-control border"
                 type="search"
                 value={keyword}
                 id="example-search-input"

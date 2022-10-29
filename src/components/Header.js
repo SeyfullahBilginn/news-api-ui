@@ -1,15 +1,17 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from "react-router-dom";
+import "./Header.css";
 
 export default function Header() {
   return (
     <Navbar variant="dark" bg="primary" expand="xxl">
       <Container fluid>
-        <Navbar.Brand href="/">BK Mobil Haber</Navbar.Brand>
+          <Link to="/" className='Header-link'>BK Mobil Haber</Link>
         <div>
-          <Navbar.Brand href="/">Ana Sayfa</Navbar.Brand>
-          <Navbar.Brand href="/favourites">Favoriler</Navbar.Brand>
+          <Link to="/" className='Header-link-secondary'>Ana Sayfa</Link>
+          <Link to="/favourites" className='Header-link-secondary'>Favouriler</Link>
         </div>
       </Container>
     </Navbar>

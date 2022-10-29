@@ -3,10 +3,10 @@ import React, { useContext, useLayoutEffect, useState } from 'react';
 import NewsService from '../services/NewsService';
 
 
-const PaginationContext = React.createContext();
+const LayoutContext = React.createContext();
 
-export function usePagination() {
-  return useContext(PaginationContext);
+export function useLayout() {
+  return useContext(LayoutContext);
 }
 export function PaginationProvider({ children }) {
   const [activePage, setActivePage] = useState(1);
@@ -15,6 +15,8 @@ export function PaginationProvider({ children }) {
   const [modifiedPages, setModifiedPages] = useState([]);
   const [keyword, setKeyword] = useState("a");
   const [cards, setCards] = useState([]);
+  const [favourites, setFavourites] = useState([]);
+
 
   useLayoutEffect(() => {
     const params = (new URL(window.location).searchParams);
@@ -72,15 +74,17 @@ export function PaginationProvider({ children }) {
     keyword,
     setKeyword,
     cards,
-    fetchNews
+    fetchNews,
+    setFavourites,
+    favourites
   };
 
   return (
-    <PaginationContext.Provider
+    <LayoutContext.Provider
       value={value}
     >
       {children}
-    </PaginationContext.Provider>
+    </LayoutContext.Provider>
   );
 }
 

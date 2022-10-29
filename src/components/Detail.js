@@ -5,5 +5,5 @@ import DetailsCard from './DetailsCard';
 export default function Detail() {
   const { state } = useLocation();
   const { item } = state;
-  return <DetailsCard item={item} />
+  return <DetailsCard details={item} />
 }
