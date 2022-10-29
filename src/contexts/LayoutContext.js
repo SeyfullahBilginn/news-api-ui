@@ -1,6 +1,5 @@
 import { node } from 'prop-types';
-import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useContext, useLayoutEffect, useState } from 'react';
 import NewsService from '../services/NewsService';
 
 
@@ -11,7 +10,6 @@ export function usePagination() {
 }
 export function PaginationProvider({ children }) {
   const [activePage, setActivePage] = useState(1);
-  const [isInitialRender, setIsInitialRender] = useState(true);
   const [numOfPage, setNumOfPage] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
   const [modifiedPages, setModifiedPages] = useState([]);
@@ -26,7 +24,6 @@ export function PaginationProvider({ children }) {
   }, [])
 
   function designPagination(numOfPage) {
-    console.log(numOfPage);
     var designedPagination = [];
     if (numOfPage > 7) {
       if ((activePage - 1 > 3) && numOfPage - activePage > 3) {
@@ -62,7 +59,6 @@ export function PaginationProvider({ children }) {
   const value = {
     activePage,
     setActivePage,
-    isInitialRender,
     numOfPage,
     setNumOfPage,
     totalCount,

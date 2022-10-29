@@ -1,19 +1,14 @@
 import React from 'react'
-import { ListGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "./DetailsCard.css";
 
 export default function DetailsCard({ item }) {
   const {
     id,
-    author,
     content,
-    description,
-    publishedAt,
-    source,
     title,
     url,
     urlToImage
@@ -44,7 +39,7 @@ export default function DetailsCard({ item }) {
             Favorilere Ekle
           </Button>
           <Button className="button" variant="secondary" size="sm"
-            onClick={() => navigate(`/details-${id}`, { state: { item: item } })}
+            onClick={() => navigate(`/details-${id}/source`, { state: { src: url, key:id } })}
           >
             Haber Kaynağına Git
           </Button>

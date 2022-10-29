@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import Layout from "./Layout";
 import Detail from "./Detail";
 import Home from "./Home";
+import NewsSource from "./NewsSource";
 
 export default function Router() {
   let element = useRoutes([
@@ -14,6 +15,7 @@ export default function Router() {
           element: <Home />,
         },
         { path: "/details:id", element: <Detail /> },
+        { path: "/details:id/source", element: <NewsSource /> },
       ],
     }
   ]);
