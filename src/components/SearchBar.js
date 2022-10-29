@@ -5,12 +5,13 @@ import { usePagination } from '../contexts/LayoutContext';
 export default function SearchBar() {
   const {
     keyword,
-    setKeyword
+    setKeyword,
+    fetchNews
   } = usePagination();
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(keyword);
+    fetchNews();
   }
 
   return (

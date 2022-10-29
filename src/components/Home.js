@@ -26,12 +26,9 @@ export default function Home() {
 
   useEffect(() => {
     fetchNews();
-  }, [activePage, keyword])
+  }, [activePage])
 
-  // console.log(cards)
-  // console.log(cards.articles)
   function RenderPagination() {
-    // console.log(modifiedPages);
     return (
       <div className="pagination">
         <div>Total Locations: {totalCount}</div>

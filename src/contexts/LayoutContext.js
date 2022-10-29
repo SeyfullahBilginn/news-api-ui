@@ -46,24 +46,18 @@ export function PaginationProvider({ children }) {
   }
 
   function fetchNews() {
-    console.log("activePage: " + activePage);
-    // NewsService.getAllNews("besiktas", activePage).then(
     NewsService.getAllNews(keyword, activePage).then(
       res => res.json()
         .then(
           result => {
-            console.log(result);
             setCards(result);
             setTotalCount(result.totalResults);
-            // console.log(result.totalResults);
-            // console.log(Math.ceil(result.totalResults / 100));
             setNumOfPage(Math.ceil(result.totalResults / 100));
             designPagination(Math.ceil(result.totalResults / 100))
           }
         )
     )
   }
-
 
   const value = {
     activePage,
