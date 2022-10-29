@@ -11,13 +11,13 @@
 1. Clone the repository
 
 ```bash
-git clone https://github.com/SeyfullahBilginn/rick-and-morty-case-study.git
+git clone https://github.com/SeyfullahBilginn/news-api-ui.git
 ```
 
 2. Change the working directory
 
 ```bash
-cd rick-and-morty-case-study
+cd news-api-ui
 ```
 
 3. Install dependencies
