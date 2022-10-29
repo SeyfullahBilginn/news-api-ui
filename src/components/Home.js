@@ -19,8 +19,8 @@ export default function Home() {
   } = usePagination();
 
   useEffect(() => {
+    fetchNews();
   }, [activePage])
-  fetchNews();
 
   function RenderPagination() {
     return (
